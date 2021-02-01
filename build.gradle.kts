@@ -1,25 +1,17 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-	id("org.springframework.boot") version "2.2.6.RELEASE"
-	id("io.spring.dependency-management") version "1.0.9.RELEASE"
-	kotlin("jvm") version "1.3.71"
-	kotlin("plugin.spring") version "1.3.71"
-	kotlin("plugin.jpa") version "1.3.71"
+	id("org.springframework.boot") version "2.4.2"
+	id("io.spring.dependency-management") version "1.0.11.RELEASE"
+	kotlin("jvm") version "1.4.21"
+	kotlin("plugin.spring") version "1.4.21"
+	kotlin("plugin.jpa") version "1.4.21"
 }
 
 group = "com.adriane.start"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_11
-val developmentOnly by configurations.creating
-configurations {
-	runtimeClasspath {
-		extendsFrom(developmentOnly)
-	}
-	compileOnly {
-		extendsFrom(configurations.annotationProcessor.get())
-	}
-}
+
 repositories {
 	mavenCentral()
 }
@@ -31,7 +23,6 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.flywaydb:flyway-core")
-	compileOnly("org.projectlombok:lombok")
 	runtimeOnly("com.h2database:h2")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	annotationProcessor("org.projectlombok:lombok")

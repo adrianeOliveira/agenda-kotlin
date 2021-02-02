@@ -1,3 +1,5 @@
+create sequence hibernate_sequence start with 4 increment by 1;
+
 CREATE TABLE contact (
     contact_id int not null AUTO_INCREMENT,
     name varchar(255) null,

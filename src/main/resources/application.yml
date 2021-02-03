@@ -1,6 +1,6 @@
 spring:
     datasource:
-        url: jdbc:h2:mem:agenda
+        url: jdbc:h2:mem:agenda;MODE=PostgreSQL;
         driverClassName: org.h2.Driver
         username: sa
         password:
@@ -15,4 +15,4 @@ spring:
     h2:
         console:
             enabled: true
-            path: /h2
+            path: /h2-console

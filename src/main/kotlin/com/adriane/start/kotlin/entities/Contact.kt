@@ -1,11 +1,11 @@
 package com.adriane.start.kotlin.entities
 
 import javax.persistence.CascadeType
+import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.Id
 import javax.persistence.JoinColumn
-import javax.persistence.ManyToOne
 import javax.persistence.OneToMany
 import javax.persistence.SequenceGenerator
 
@@ -18,7 +18,7 @@ class Contact(
     var name: String = "",
     var phoneNumber: String = "",
     var active: Boolean = false,
-    @OneToMany(mappedBy = "contact", cascade = [CascadeType.ALL])
+    @OneToMany(cascade = [CascadeType.ALL]) @JoinColumn(name = "contact_id")
     var emails: MutableList<Email> = mutableListOf()
 )
 
@@ -29,6 +29,6 @@ class Email(
     @GeneratedValue(generator = "emailIdSEQ")
     var emailId: Int = 0,
     var emailAddress: String = "",
-    @ManyToOne(targetEntity = Contact::class) @JoinColumn(name = "contact_id")
+    @Column(name = "contact_id")
     var contact: Int = 0
 )
